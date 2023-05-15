@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Obstabreak</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <audio id="backgroundMusic" src="music/music.wav" autoplay loop></audio>
+        <div id="menu">
+            <div class="name">
+                <img src="assets/menu/gameName.png">
+              </div>
+            <div class="menuButton" id="button0" onclick="startGame()"><p>Start Game</p></div>
+            <div class="howToPlay" id="button1" onclick="showHowToPlay()"><p>How To Play</p></div>
+            <div class="music" id="button2" onclick="showMusicSettings()"><p>Music Settings</p></div>
+            <div id="howToPlayOverlay" >
+                <div id="howToPlayContent">
+                    <h2>How To Play</h2>
+                    <div> <p>Tek başına maceraya atılan korkusuz kahramanımıza bir selam verin. Kahramanımız önüne çıkan engelleri çevikliği sayesinde veya elindeki güçlü silahıyla engelleri yıkarak atlatmaya çalışıyor. Kahramanımızın sahip olduğu özel elbise sayesinde yerçekimini tersine çevirerek 
+                        mağaranın tavanını düz bir yol yürürmüşçesine kullanabiliyor. Kahramanımıza engelleri aşmasında ve elmasları toplamasında yardımcı ol.</p></div>
+                    <div><p>Korkusuz kahramanımızı yürütmek için herhangi bir tuşa basmanıza gerek yok. Yer çekimi sıfırdan büyükken, yukarı yön tuşu veya boşluk tuşu sayesinde engellerden atlayabilir, elmasları ve şanslıysan sağlığını doldurmak için can toplayabilirsin. İki kere yukarı yön tuşuna bastığınızda ise elbisenin özel gücü aktifleşecek ve yer çekimi sıfırın altına inecektir. Kahramanımız mağaranın tavanındayken, engellerden atlamak 
+                        için aşağı yön tuşu ve boşluk tuşu kullanabilirsin. Tekrar aşağıya inmek için ise aşağı yön tuşuna iki kere basman yeterli.</p></div>
+                    <div><p>Elindeki muhteşem silahı sayesinde kahramanımız, mavi renkte olan engelleri kırarak elmas toplayabilir ancak siyah renkteki engeller kırılmazdır. Sakın onları kırmayı deneme! Ayrıca kahramanımızın silahı sayesinde rastgele çıkan elmasları veya canları vurarak onları toplayabilirsin. Ancak sakın unutma silahına sadece 20 mermi doldurabiliyorsun. Mermin bittiğinde ise 
+                        kahramanımızın silahı doldurma süresi var. Oyun sırasında sana gerekli olan bilgileri sağ yukardan görebilirsin.</p></div>
+                    <div><p>Hadi ne duruyorsun, kahramanımızın sana ihtiyacı var!</p></div>
+                    <div id="button3" onclick="showHowToPlay()"><p>Main Menu</p></div>
+                </div>
+            </div>
+            <div id="musicSettings" >
+                <div id="musicSettingsContent">
+                    <h2>Music Settings <br><br> </h2>
+                    <div id="settings">
+                        <label for="volumeSlider">Volume:</label>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" onchange="changeVolume(this.value)">
+                    </div>
+                    <div id="button4" onclick="showMusicSettings()"><p>Main Menu</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="death">
+            <div id="deathContent">
+              <h2>Game Over</h2>
+              <p>Elapsed Time: <span id="elapsedTime"></span></p>
+              <p>Collected Diamonds: <span id="collectedDiamonds"></span></p>
+              <div id="button5" onclick="startGame(0)"><p>Main Menu</p></div>
+            </div>
+          </div>
+          
+        <canvas id="canvas" style="display: none;"></canvas>
+        <script src="index.js"></script>
+        </div>
+    </body>
+</html>
