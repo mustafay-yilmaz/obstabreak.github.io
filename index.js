@@ -738,8 +738,8 @@ function changeVolume(volume) {
 
 function startMusic() {
   var backgroundMusic = document.getElementById("backgroundMusic");
-  backgroundMusic.volume = 0.25;
   backgroundMusic.play();
+  backgroundMusic.volume = 0.25;
 }
 
 function showDeathScreen() {
