@@ -1,5 +1,5 @@
 # OSTABREK GAME!
-
+![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu.png?raw=true)
 Merhaba! Burada javascript ile yaptığım platform tabanlı bir oyunu tanıtacağım. Oyunumun ismi Obstabrek! Oyunda kahramanımızın karşısına çıkan engellere karşı koyuyoruz ve elmasları toplamasına yardımcı oluyoruz.
 
 # Oyuna Nasıl Ulaşabilirim?
@@ -35,7 +35,11 @@ Oyun hakkında daha fazla bilgiye ve nasıl oynanıldığını daha rahat anlama
 
 ## Oyundan Görseller
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
+ 1. **MENU**
+
+![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu.png?raw=true)
+
+ 2. List item
 
 ## Yapımcısı ve Lisans Sahibi
 
@@ -44,5 +48,5 @@ Bursa Teknik Üniversitesi - Bilgisayar Mühendisliği Öğrencisi
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg1ODE5MzgzXX0=
+eyJoaXN0b3J5IjpbLTE1MDA1NDQ3MTMsNzg1ODE5MzgzXX0=
 -->
