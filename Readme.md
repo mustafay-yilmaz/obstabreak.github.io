@@ -39,11 +39,17 @@ Oyun hakkında daha fazla bilgiye ve nasıl oynanıldığını daha rahat anlama
 
 ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu.png?raw=true)
 
- 2. **HOW TO PLAY**
+ 1. **HOW TO PLAY**
  ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/howtoplay.png?raw=true)
 
- 3. GAME OVER
- 4. 
+ 2. **GAME OVER**
+ ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/GameOver.png?raw=true)
+
+ 3. GAME PLAY
+ ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/playing.png?raw=true)
+
+ 4. GRAVITY
+ 5. 
 
 ## Yapımcısı ve Lisans Sahibi
 
@@ -52,5 +58,5 @@ Bursa Teknik Üniversitesi - Bilgisayar Mühendisliği Öğrencisi
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1MTEwMDY2OCw3ODU4MTkzODNdfQ==
+eyJoaXN0b3J5IjpbOTkwOTQzNTYyLDc4NTgxOTM4M119
 -->
