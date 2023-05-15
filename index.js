@@ -5,7 +5,7 @@ c.width = 800;
 c.height = 500;
 
 let gameFrame = 0;
-let gameSpeed = 5;
+let gameSpeed = 1;
 let score = 0;
 let lastTime = 0;
 let bulletFinishTime = -1;
