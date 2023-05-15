@@ -4,7 +4,7 @@ Merhaba! Burada javascript ile yaptığım platform tabanlı bir oyunu tanıtaca
 
 # Oyuna Nasıl Ulaşabilirim?
 
-https://wassapman.github.io/ adresine tıklayarak  oyunu oynayabilirsinz.
+Yandaki linke tıklayarak  oyunu oynayabilirsinz : [Buraya tıkla](https://wassapman.github.io/obstabreak.github.io/) 
 
 # Oyun  Hangi Platformları Destekliyor?
 
@@ -58,5 +58,6 @@ Bursa Teknik Üniversitesi - Bilgisayar Mühendisliği Öğrencisi
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NzcyMDkzMCw3ODU4MTkzODNdfQ==
+eyJoaXN0b3J5IjpbMzIyODAzNzM1LC02NTc3MjA5MzAsNzg1OD
+E5MzgzXX0=
 -->
