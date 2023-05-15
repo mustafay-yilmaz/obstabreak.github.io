@@ -35,11 +35,15 @@ Oyun hakkında daha fazla bilgiye ve nasıl oynanıldığını daha rahat anlama
 
 ## Oyundan Görseller
 
- 1. **MENU**
+ 1. ****MENU****
 
 ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu.png?raw=true)
 
- 2. List item
+ 2. **HOW TO PLAY**
+ ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/howtoplay.png?raw=true)
+
+ 3. GAME OVER
+ 4. 
 
 ## Yapımcısı ve Lisans Sahibi
 
@@ -48,5 +52,5 @@ Bursa Teknik Üniversitesi - Bilgisayar Mühendisliği Öğrencisi
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDA1NDQ3MTMsNzg1ODE5MzgzXX0=
+eyJoaXN0b3J5IjpbLTg1MTEwMDY2OCw3ODU4MTkzODNdfQ==
 -->
