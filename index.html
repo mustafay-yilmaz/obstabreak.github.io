@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <audio id="backgroundMusic" src="music/music.wav" autoplay loop></audio>
+       
         <div id="menu">
             <div class="name">
                 <img src="assets/menu/gameName.png">
@@ -29,16 +29,28 @@
             </div>
             <div id="musicSettings" >
                 <div id="musicSettingsContent">
-                    <h2>Music Settings <br><br> </h2>
+                    <h2 style= "text-align: center;">Music Settings <br><br> </h2>
                     <div id="settings">
+                        <div style="margin-bottom: 10px;">
+                          <label for="musicStatusSelect">Music:</label>
+                          <select style="margin-left: 50px;" id="musicStatusSelect" value="off" onchange="handleMusicStatusChange()">
+                            <option value="off">Off</option>
+                            <option value="on">On</option>
+                          </select>
+                        </div>
                         <label for="volumeSlider">Volume:</label>
-                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" onchange="changeVolume(this.value)">
-                    </div>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0">
+                      </div>
+                      
                     <div id="button4" onclick="showMusicSettings()"><p>Main Menu</p></div>
                 </div>
             </div>
         </div>
-        
+
+        <audio id="backgroundMusic" src="music/music.wav" loop></audio>
+        <img id="musicOnIcon" src="assets/menu/music-on.png" alt="Music On Icon">
+        <img id="musicOffIcon" src="assets/menu/music-off.png" alt="Music Off Icon">
+        <span id="fpsCounter" class="fps-counter"></span>
         <div id="death">
             <div id="deathContent">
               <h2>Game Over</h2>
@@ -47,7 +59,6 @@
               <div id="button5" onclick="startGame(0)"><p>Main Menu</p></div>
             </div>
           </div>
-          
         <canvas id="canvas" style="display: none;"></canvas>
         <script src="index.js"></script>
         </div>

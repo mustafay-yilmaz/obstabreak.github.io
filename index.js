@@ -30,7 +30,7 @@ function updateMagazine(player) {
     ctx.drawImage(img, c.width - 106, 120, 30, 30);
     ctx.font = "16px Arial";
     ctx.fillStyle = "#EFB91B";
-    ctx.fillText("YÜKLENİYOR..", c.width - 65, 140, 52, 52);
+    ctx.fillText("RELOADING..", c.width - 65, 140, 52, 52);
     if (lastTime - bulletFinishTime > 2000) player.bullets = 20; // Yeniden yükleme tamamlandığında şarjör doldurulur
   } else {
     // Şarjör doluysa, kalan mermi sayısı gösterilir
@@ -60,7 +60,7 @@ function updateTimer(lastTime) {
   time = convertToMinute(lastTime);
   ctx.font = "16px Arial";
   ctx.fillStyle = "#FA760D";
-  ctx.fillText("SÜRE : " + time, c.width - 106, 24);
+  ctx.fillText("TIME : " + time, c.width - 106, 24);
 }
 
 const backgroundLayer0 = new Image();
@@ -249,6 +249,7 @@ class Player {
       this.jumping = true;
     } else {
       this.gravity = -this.gravity;
+
     }
   }
 }
@@ -705,17 +706,7 @@ const gameLayers = [
   layer0,
 ];
 
-function startGame(number) {
-  var menu = document.getElementById("menu");
-  if (number == 0) {
-    location.reload();
-  } else {
-    menu.style.display = "none";
-    canvas.style.display = "inline-block";
-    startMusic();
-    animate(0);
-  }
-}
+
 
 function showHowToPlay() {
   var overlay = document.getElementById("howToPlayOverlay");
@@ -731,15 +722,110 @@ function showMusicSettings() {
   else music.style.display = "none";
 }
 
-function changeVolume(volume) {
-  var backgroundMusic = document.getElementById("backgroundMusic");
-  backgroundMusic.volume = volume;
+function setCookie(name, value, expirationDays) {
+  var date = new Date();
+  date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + "; " + expires;
+}
+
+function getCookie(name) {
+  var cookieArr = document.cookie.split("; ");
+  for (var i = 0; i < cookieArr.length; i++) {
+    var cookiePair = cookieArr[i].split("=");
+    if (name === cookiePair[0]) {
+      return cookiePair[1];
+    }
+  }
+  return null;
+}
+
+var savedMusicLevel = getCookie("musicLevel");
+
+// Müzik seviyesini kontrol edin ve istediğiniz şekilde kullanın
+if (savedMusicLevel !== null) {
+  // Müzik seviyesi cookie'den alındı, istediğiniz şekilde kullanabilirsiniz
+  console.log("Müzik seviyesi: " + savedMusicLevel);
+} else {
+  // Cookie'de müzik seviyesi bulunamadı, varsayılan değeri kullanabilirsiniz
+  console.log("Cookie'de müzik seviyesi bulunamadı. Varsayılan değeri kullanılıyor.");
+}
+
+let volume = document.getElementById("volumeSlider");
+let audio = document.getElementById("backgroundMusic");
+var musicStatusSelect = document.getElementById("musicStatusSelect");
+audio.volume=0;
+
+volume.addEventListener("change", function(e) {
+    let oldvolume=audio.volume;
+    audio.volume = e.currentTarget.value;
+    if(audio.volume==0){
+    pauseMusic();
+    musicOnIcon.style.display = "inline-block";
+    musicOffIcon.style.display = "none";
+    musicStatusSelect.value="off";
+    }
+    else if(oldvolume==0 && audio.volume!=0){
+      startMusic();
+      musicOnIcon.style.display = "none";
+      musicOffIcon.style.display = "inline-block";
+      musicStatusSelect.value="on";
+    }
+    setCookie("musicLevel", audio.volume, 365);
+    
+})
+
+var musicOnIcon = document.getElementById("musicOnIcon");
+var musicOffIcon = document.getElementById("musicOffIcon");
+
+musicOnIcon.addEventListener("click", function() {
+  musicOn();
+  
+});
+
+musicOffIcon.addEventListener("click", function() {
+  musicOff();
+});
+
+function musicOn() {
+  startMusic();
+  musicOnIcon.style.display = "none";
+  musicOffIcon.style.display = "inline-block";
+  musicStatusSelect.value="on";
+  if(audio.volume==0 && volumeSlider.value==0) {
+  audio.volume=0.1;
+  volumeSlider.value = 0.1;
+  setCookie("musicLevel", audio.volume, 365);
+}
+}
+
+function musicOff(){
+  pauseMusic();
+  musicOnIcon.style.display = "inline-block";
+  musicOffIcon.style.display = "none";
+  musicStatusSelect.value="off";
+}
+
+function handleMusicStatusChange() {
+  var musicStatusSelect = document.getElementById("musicStatusSelect");
+  var selectedOption = musicStatusSelect.value;
+
+  if (selectedOption === "off") {
+    musicOff(); // Müziği kapatma işlemleri burada gerçekleştirilebilir
+  } else if (selectedOption === "on") {
+    musicOn(); // Müziği açma işlemleri burada gerçekleştirilebilir
+  }
 }
 
 function startMusic() {
   var backgroundMusic = document.getElementById("backgroundMusic");
   backgroundMusic.play();
-  backgroundMusic.volume = 0.25;
+  backgroundMusic.volume=volumeSlider.value;
+}
+
+function pauseMusic() {
+  var backgroundMusic = document.getElementById("backgroundMusic");
+  backgroundMusic.pause();
 }
 
 function showDeathScreen() {
@@ -749,8 +835,43 @@ function showDeathScreen() {
   else death.style.display = "none";
 }
 
+let frameCount = 0;
+let fps, fpsInterval, startTime, now, then, elapsed;
+let desiredFPS = 60; // Hedef FPS değeri
+let desiredInterval = 1000 / desiredFPS; // Hedef süre aralığı (milisaniye cinsinden)
+
+function startGame(number) {
+  var menu = document.getElementById("menu");
+  if (number == 0) {
+    location.reload();
+  } else {
+    menu.style.display = "none";
+    canvas.style.display = "inline-block";
+    then = Date.now();
+    startTime = then;
+    setTimeout(() => {
+      let time=Date.now();
+      animate(0);
+    }, desiredInterval);
+
+  }
+}
+
 function animate(timestamp) {
-  ctx.clearRect(0, 0, c.width, c.height); // canvas'ı temizle
+  ctx.clearRect(0, 0, c.width, c.height);
+  console.log(getCookie("musicLevel"));
+  frameCount++;
+  now = Date.now();
+  elapsed = now - then;
+
+  if (elapsed > 1000) {
+    fps = Math.round((frameCount * 1000) / elapsed);
+    frameCount = 0;
+    then = now;
+
+    const fpsCounter = document.getElementById("fpsCounter");
+    fpsCounter.textContent = "FPS: " + fps;
+  }
 
   gameLayers.forEach((layer) => {
     layer.update();
@@ -778,8 +899,8 @@ function animate(timestamp) {
   let deltatime = timestamp - lastTime;
   lastTime = timestamp;
   gameFrame++;
-
-  updateTimer(lastTime);
+  
+  updateTimer(now-startTime);
 
   updateDetectCollision(bullets, obstaclesBottom);
   updateDetectCollision(bullets, obstaclesTop);
@@ -799,13 +920,18 @@ function animate(timestamp) {
   if (player.hp == 0) {
     cancelAnimationFrame(animate);
     const elapsedTimeElement = document.getElementById("elapsedTime");
-    const collectedDiamondsElement =
-      document.getElementById("collectedDiamonds");
+    const collectedDiamondsElement = document.getElementById("collectedDiamonds");
     elapsedTimeElement.textContent = time;
     collectedDiamondsElement.textContent = score;
     showDeathScreen();
     return;
   }
 
-  requestAnimationFrame(animate);
+    // Geçen süreye göre bir sonraki çağırmanın zamanını ayarlayın
+    let nextDelay = Math.max(0, desiredInterval - deltatime);
+    setTimeout(() => {
+      requestAnimationFrame(animate);
+    }, nextDelay);
+
 }
+
