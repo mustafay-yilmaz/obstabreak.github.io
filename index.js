@@ -395,7 +395,6 @@ const obstaclesTop = [];
 let bullets = [];
 
 let obstacleInterval = 100;
-let count = 0;
 
 var engelOlasiligi = 0.5;
 var yikilmazlik = [0.6, 0.6];
@@ -504,7 +503,6 @@ function createObstacles(obstacles, type) {
     }
   }
 }
-let counter = 0;
 
 function createDiamond() {
   var diamondY = 340;
@@ -851,8 +849,7 @@ function showDeathScreen() {
   else death.style.display = "none";
 }
 
-let frameCount = 0;
-let fps, fpsInterval, startTime, now, then, elapsed;
+let startTime, now;
 let desiredFPS = 60; // Hedef FPS değeri
 let desiredInterval = 1000 / desiredFPS; // Hedef süre aralığı (milisaniye cinsinden)
 
@@ -863,10 +860,8 @@ function startGame(number) {
   } else {
     menu.style.display = "none";
     canvas.style.display = "inline-block";
-    then = Date.now();
-    startTime = then;
+    startTime = Date.now();
     setTimeout(() => {
-      let time=Date.now();
       animate(0);
     }, desiredInterval);
 
@@ -875,18 +870,7 @@ function startGame(number) {
 
 function animate(timestamp) {
   ctx.clearRect(0, 0, c.width, c.height);
-  frameCount++;
   now = Date.now();
-  elapsed = now - then;
-
-  if (elapsed > 1000) {
-    fps = Math.round((frameCount * 1000) / elapsed);
-    frameCount = 0;
-    then = now;
-
-    const fpsCounter = document.getElementById("fpsCounter");
-    fpsCounter.textContent = "FPS: " + fps;
-  }
 
   gameLayers.forEach((layer) => {
     layer.update();

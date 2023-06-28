@@ -128,17 +128,18 @@ body {
 }
 #howToPlayContent {
   position: absolute;
-  top: 35%;
-  left: 0%;
+  top: 40%;
+  left: 3%;
+  right: 3%;
+  text-align: justify;
   transform: translateY(-50%);
-  text-align: center;
   color: white;
 }
 
 #button3 {
   position: absolute;
   left: 50%;
-  top: 125%; /* Değer değiştirildi */
+  top: 115%; /* Değer değiştirildi */
   transform: translate(-50%, -50%);
   width: 200px;
   height: 80px;
@@ -155,7 +156,7 @@ body {
   background-color: #283957;
 }
 
-#button3 p {
+#button3,#button4,#button5 p {
   color: white;
   font-size: 18px;
 }
@@ -203,6 +204,10 @@ body {
   cursor: pointer;
 }
 
+#button4:hover {
+  background-color: #283957;
+}
+
 #death {
   display: none;
   position: fixed;
@@ -218,15 +223,16 @@ body {
 #deathContent {
   position: relative;
   top: 30%;
+  left: 30%;
   transform: translateY(-50%);
-  text-align: center;
+  text-align: left;
   color: white;
 }
 
 #button5 {
   position: absolute;
-  left: 50%;
-  top: 200%; /* Değer değiştirildi */
+  left: 22%;
+  top: 145%; /* Değer değiştirildi */
   transform: translate(-50%, -50%);
   width: 200px;
   height: 80px;
@@ -239,12 +245,8 @@ body {
   cursor: pointer;
 }
 
-.fps-counter {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  font-size: 14px;
+#button5:hover {
+  background-color: #283957;
 }
 
 #musicOnIcon {
