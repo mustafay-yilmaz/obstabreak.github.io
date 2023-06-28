@@ -818,6 +818,7 @@ function musicOff(){
   musicOffIcon.style.display = "none";
   musicStatusSelect.value="off";
   volumeSlider.value = 0;
+  audio.volume=0;
   setCookie("musicLevel", audio.volume, 365);
 }
 
