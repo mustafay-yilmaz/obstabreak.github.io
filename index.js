@@ -14,9 +14,9 @@ var savedMusicLevel = getCookie("musicLevel");
 // Sayfa yüklendiğinde çalışacak olan kod
 window.onload = function() {
   // Eğer musicLevel null değilse
-  if (savedMusicLevel !== null) {
+  if (savedMusicLevel != null) {
     // volumeSlider'ın value değerini musicLevel olarak ayarla
-    document.getElementById('volumeSlider').value = musicLevel;
+    document.getElementById('volumeSlider').value = savedMusicLevel;
     if(savedMusicLevel==0){
     pauseMusic();
     musicOnIcon.style.display = "inline-block";
