@@ -817,6 +817,7 @@ function musicOff(){
   musicOnIcon.style.display = "inline-block";
   musicOffIcon.style.display = "none";
   musicStatusSelect.value="off";
+  volumeSlider.value = 0;
 }
 
 function handleMusicStatusChange() {
