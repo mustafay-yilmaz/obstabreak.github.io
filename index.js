@@ -933,8 +933,19 @@ function animate(timestamp) {
     cancelAnimationFrame(animate);
     const elapsedTimeElement = document.getElementById("elapsedTime");
     const collectedDiamondsElement = document.getElementById("collectedDiamonds");
+    const bestScore= document.getElementById("bestScore");
     elapsedTimeElement.textContent = time;
     collectedDiamondsElement.textContent = score;
+    if(getCookie("bestScore")!=null){
+      if(score>getCookie("bestScore")){
+        setCookie("bestScore", score, 365);
+        bestScore.textContent = score;
+      }else {
+        bestScore.textContent = getCookie("bestScore");
+      }
+    }else {
+      bestScore.textContent = score;
+    }
     showDeathScreen();
     return;
   }
