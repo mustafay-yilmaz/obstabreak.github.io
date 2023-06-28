@@ -55,10 +55,12 @@ window.onload = function() {
 function toggleLanguage(language) {
   if (language === 'English') {
     translateTexts("Türkçe");
+    setCookie("language", "Türkçe", 365);
     document.getElementById('english-flag').style.display = 'none';
     document.getElementById('turkish-flag').style.display = 'block';
   } else if (language === 'Türkçe') {
     translateTexts("English");
+    setCookie("language", "English", 365);
     document.getElementById('english-flag').style.display = 'block';
     document.getElementById('turkish-flag').style.display = 'none';
     
