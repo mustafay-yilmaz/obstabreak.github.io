@@ -91,7 +91,7 @@ function translateTexts(currentLanguage) {
     start = "Start Game";
     htp = "How To Play";
     msettings = "Music Settings";
-    htp1 = "Greetings to our fearless hero embarking on an adventure alone. Our hero tries to overcome the obstacles by utilizing their agility or by smashing through them with their powerful weapon. Thanks to their special suit, they can reverse gravity" 
+    htp1 = "Greetings to our fearless hero embarking on an adventure alone. Our hero tries to overcome the obstacles by utilizing their agility or by smashing through them with his powerful weapon. Thanks to his special suit, he can reverse gravity" 
     +"and navigate the cave's ceiling as if walking on a flat path. Assist our hero in overcoming the obstacles and collecting the diamonds.";
     htp2 = "You don't need to press any key to control our fearless hero. When gravity is greater than zero, you can use the up arrow key or the spacebar to jump over obstacles, collect diamonds, and, if you're lucky, gather health pickups to restore your health. When you press the up arrow key twice, the special power of the suit will activate, and gravity will go below zero. While our hero is on the ceiling of the cave," 
     +"you can use the down arrow key and the spacebar to jump over obstacles. To descend again, simply press the down arrow key twice.";
