@@ -268,3 +268,24 @@ body {
   display: none; /* Başlangıçta gizli olarak ayarlanır */
 }
 
+#english-flag {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  
+}
+
+#turkish-flag {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  display: none; /* Başlangıçta gizli olarak ayarlanır */
+}
+
+

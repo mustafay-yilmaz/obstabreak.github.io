@@ -11,6 +11,10 @@ let lastTime = 0;
 let bulletFinishTime = -1;
 
 var savedMusicLevel = getCookie("musicLevel");
+var savedLanguage = getCookie("language");
+var language = "English";
+var text1 = "TIME : ";
+var text2 = "RELOADING..";
 // Sayfa yüklendiğinde çalışacak olan kod
 window.onload = function() {
   // Eğer musicLevel null değilse
@@ -30,8 +34,106 @@ window.onload = function() {
       musicStatusSelect.value="on";
     }
   }
+
+  if(savedLanguage !=null){
+    translateTexts(savedLanguage);
+    language=savedLanguage;
+  }else{
+    setCookie("language", language, 365);
+    translateTexts("English");
+  }
+
+  if(language=="Türkçe")
+  toggleLanguage("English");
+  else{
+    toggleLanguage("Türkçe");
+  }
+
+
 };
 
+function toggleLanguage(language) {
+  if (language === 'English') {
+    translateTexts("Türkçe");
+    document.getElementById('english-flag').style.display = 'none';
+    document.getElementById('turkish-flag').style.display = 'block';
+  } else if (language === 'Türkçe') {
+    translateTexts("English");
+    document.getElementById('english-flag').style.display = 'block';
+    document.getElementById('turkish-flag').style.display = 'none';
+    
+  }
+  editText();
+}
+
+
+function editText(){
+  document.getElementById("start").textContent=start;
+  document.getElementById("htp").textContent=htp;
+  document.getElementById("htp*").textContent=htp;
+  document.getElementById("msettings").textContent=msettings;
+  document.getElementById("msettings*").textContent=msettings;
+  document.getElementById("htp1").textContent=htp1;
+  document.getElementById("htp2").textContent=htp2;
+  document.getElementById("htp3").textContent=htp3;
+  document.getElementById("htp4").textContent=htp4;
+  document.getElementById("mn").textContent=mn;
+  document.getElementById("mn*").textContent=mn;
+  document.getElementById("mn**").textContent=mn;
+  document.getElementById("music").textContent=music;
+  document.getElementById("op1").textContent=op1;
+  document.getElementById("op2").textContent=op2;
+  document.getElementById("vol").textContent=vol;
+}
+
+function translateTexts(currentLanguage) {
+  if (currentLanguage === "English") {
+    start = "Start Game";
+    htp = "How To Play";
+    msettings = "Music Settings";
+    htp1 = "Greetings to our fearless hero embarking on an adventure alone. Our hero tries to overcome the obstacles by utilizing their agility or by smashing through them with their powerful weapon. Thanks to their special suit, they can reverse gravity" 
+    +"and navigate the cave's ceiling as if walking on a flat path. Assist our hero in overcoming the obstacles and collecting the diamonds.";
+    htp2 = "You don't need to press any key to control our fearless hero. When gravity is greater than zero, you can use the up arrow key or the spacebar to jump over obstacles, collect diamonds, and, if you're lucky, gather health pickups to restore your health. When you press the up arrow key twice, the special power of the suit will activate, and gravity will go below zero. While our hero is on the ceiling of the cave," 
+    +"you can use the down arrow key and the spacebar to jump over obstacles. To descend again, simply press the down arrow key twice.";
+    htp3= "Thanks to the magnificent weapon in their hand, our hero can collect diamonds by smashing the blue-colored obstacles, but be careful not to attempt breaking the black-colored obstacles! Additionally, using their weapon, our hero can shoot and collect randomly appearing diamonds or health pickups. However, remember that you can only load 20 bullets into the weapon. Once the bullets are depleted," 
+    +"there is a reloading time for our hero's weapon. During the game, you can see the necessary information on the top right corner.";
+    htp4= "Come on, what are you waiting for? Our hero needs you!";
+    mn="Main Menu";
+    music="Music:";
+    op1="Off";
+    op2="On";
+    vol = "Volume";
+    d1="Game Over!";
+    d2="Elapsed Time:";
+    d3="Collected Diamonds:";
+    d4="Your Best Score:";
+    text1 = "TIME : ";
+    text2 = "RELOADING..";
+  } else if (currentLanguage === "Türkçe") {
+    start = "Oyunu Başlat";
+    htp = "Nasıl Oynanır?";
+    msettings = "Müzik Ayarları";
+    htp1 = "Tek başına maceraya atılan korkusuz kahramanımıza bir selam verin. Kahramanımız önüne çıkan engelleri çevikliği sayesinde"+ 
+    "veya elindeki güçlü silahıyla engelleri yıkarak atlatmaya çalışıyor. Kahramanımızın sahip olduğu özel elbise sayesinde yerçekimini tersine çevirerek" 
+    +"mağaranın tavanını düz bir yol yürürmüşçesine kullanabiliyor."+ "Kahramanımıza engelleri aşmasında ve elmasları toplamasında yardımcı ol.";
+    htp2 = "Korkusuz kahramanımızı yürütmek için herhangi bir tuşa basmanıza gerek yok. Yer çekimi sıfırdan büyükken, yukarı yön tuşu veya boşluk tuşu sayesinde engellerden atlayabilir, elmasları ve şanslıysan sağlığını doldurmak için can toplayabilirsin. İki kere yukarı yön tuşuna bastığınızda ise elbisenin özel gücü aktifleşecek ve yer çekimi sıfırın altına inecektir. Kahramanımız mağaranın tavanındayken, engellerden atlamak" 
+    +"için aşağı yön tuşu ve boşluk tuşu kullanabilirsin. Tekrar aşağıya inmek için ise aşağı yön tuşuna iki kere basman yeterli.";
+    htp3= "Elindeki muhteşem silahı sayesinde kahramanımız, mavi renkte olan engelleri kırarak elmas toplayabilir ancak siyah renkteki engeller kırılmazdır. Sakın onları kırmayı deneme! Ayrıca kahramanımızın silahı sayesinde rastgele çıkan elmasları veya canları vurarak onları toplayabilirsin. Ancak sakın unutma silahına sadece 20 mermi doldurabiliyorsun. Mermin bittiğinde ise" 
+    +"kahramanımızın silahı doldurma süresi var. Oyun sırasında sana gerekli olan bilgileri sağ yukardan görebilirsin.";
+    htp4= "Hadi ne duruyorsun, kahramanımızın sana ihtiyacı var!";
+    mn="Ana Menü";
+    music="Müzik:";
+    op1="Kapalı";
+    op2="Açık";
+    vol = "Ses Seviyesi";
+    d1="Oyun Bitti!";
+    d2="Geçen Süre:";
+    d3="Toplanılan Elmas:";
+    d4="En İyi Skorun:";
+    text1 = "SÜRE : ";
+    text2 = "YÜKLENİYOR..";
+  }
+}
 function updateScore() {
   // Skorun güncellendiği fonksiyon
   img = new Image();
@@ -52,7 +154,7 @@ function updateMagazine(player) {
     ctx.drawImage(img, c.width - 106, 120, 30, 30);
     ctx.font = "16px Arial";
     ctx.fillStyle = "#EFB91B";
-    ctx.fillText("RELOADING..", c.width - 65, 140, 52, 52);
+    ctx.fillText(text2, c.width - 65, 140, 52, 52);
     if (lastTime - bulletFinishTime > 2000) player.bullets = 20; // Yeniden yükleme tamamlandığında şarjör doldurulur
   } else {
     // Şarjör doluysa, kalan mermi sayısı gösterilir
@@ -82,7 +184,7 @@ function updateTimer(lastTime) {
   time = convertToMinute(lastTime);
   ctx.font = "16px Arial";
   ctx.fillStyle = "#FA760D";
-  ctx.fillText("TIME : " + time, c.width - 106, 24);
+  ctx.fillText(text1 + time, c.width - 106, 24);
 }
 
 const backgroundLayer0 = new Image();
@@ -812,6 +914,7 @@ function musicOn() {
 }
 }
 
+
 function musicOff(){
   pauseMusic();
   musicOnIcon.style.display = "inline-block";
@@ -920,22 +1023,22 @@ function animate(timestamp) {
 
   if (player.hp == 0) {
     cancelAnimationFrame(animate);
-    const elapsedTimeElement = document.getElementById("elapsedTime");
-    const collectedDiamondsElement = document.getElementById("collectedDiamonds");
-    const bestScore= document.getElementById("bestScore");
-    elapsedTimeElement.textContent = time;
-    collectedDiamondsElement.textContent = score;
+    document.getElementById("d1").textContent=d1;
+    document.getElementById("d2").textContent=d2+"  "+time;
+    document.getElementById("d3").textContent=d3+"  "+score;
     if(getCookie("bestScore")!=null){
       if(score>getCookie("bestScore")){
         setCookie("bestScore", score, 365);
         bestScore.textContent = score;
+        document.getElementById("d4").textContent=d4+"  "+score;
       }else {
-        bestScore.textContent = getCookie("bestScore");
+        document.getElementById("d4").textContent=d4+"  "+getCookie("bestScore");
       }
     }else {
-      bestScore.textContent = score;
+      document.getElementById("d4").textContent=d4+"  "+score;
       setCookie("bestScore", score, 365);
     }
+    
     showDeathScreen();
     return;
   }

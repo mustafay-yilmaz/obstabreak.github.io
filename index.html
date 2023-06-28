@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Obstabreak</title>
+        <title>Obstabrek</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -11,40 +11,44 @@
             <div class="name">
                 <img src="assets/menu/gameName.png">
               </div>
-            <div class="menuButton" id="button0" onclick="startGame()"><p>Start Game</p></div>
-            <div class="howToPlay" id="button1" onclick="showHowToPlay()"><p>How To Play</p></div>
-            <div class="music" id="button2" onclick="showMusicSettings()"><p>Music Settings</p></div>
+            <div class="menuButton" id="button0" onclick="startGame()"><p id="start"></p></div>
+            <div class="howToPlay" id="button1" onclick="showHowToPlay()"><p id="htp"></p></div>
+            <div class="music" id="button2" onclick="showMusicSettings()"><p id="msettings"></p></div>
             <div id="howToPlayOverlay" >
                 <div id="howToPlayContent">
-                    <h2 style="text-align: center; margin-bottom: 2%;">How To Play</h2>
-                    <div style="margin-bottom: 2%;"> <p>Greetings to our fearless hero embarking on an adventure alone. Our hero tries to overcome the obstacles by utilizing their agility or by smashing through them with their powerful weapon. Thanks to their special suit, they can reverse gravity 
-                        and navigate the cave's ceiling as if walking on a flat path. Assist our hero in overcoming the obstacles and collecting the diamonds.</p></div>
-                    <div style="margin-bottom: 2%;"><p>You don't need to press any key to control our fearless hero. When gravity is greater than zero, you can use the up arrow key or the spacebar to jump over obstacles, collect diamonds, and, if you're lucky, gather health pickups to restore your health. When you press the up arrow key twice, the special power of the suit will activate, and gravity will go below zero. While our hero is on the ceiling of the cave, 
-                        you can use the down arrow key and the spacebar to jump over obstacles. To descend again, simply press the down arrow key twice.</p></div>
-                    <div style="margin-bottom: 2%;"><p>Thanks to the magnificent weapon in their hand, our hero can collect diamonds by smashing the blue-colored obstacles, but be careful not to attempt breaking the black-colored obstacles! Additionally, using their weapon, our hero can shoot and collect randomly appearing diamonds or health pickups. However, remember that you can only load 20 bullets into the weapon. Once the bullets are depleted, 
-                        there is a reloading time for our hero's weapon. During the game, you can see the necessary information on the top right corner.</p></div>
-                    <div style="text-align: center"><p>Come on, what are you waiting for? Our hero needs you!</p></div>
-                    <div id="button3" onclick="showHowToPlay()"><p>Main Menu</p></div>
+                    <h1 style="text-align: center; margin-bottom: 2%;" ><p id="htp*"></p></h1>
+                    <div style="margin-bottom: 2%;"> <p id="htp1"></p></div>
+                    <div style="margin-bottom: 2%;"><p id="htp2"></p></div>
+                    <div style="margin-bottom: 2%;"><p id="htp3"></p></div>
+                    <div style="text-align: center"><p id="htp4"></p></div>
+                    <div id="button3" onclick="showHowToPlay()"><p id="mn"></p></div>
                 </div>
             </div>
             <div id="musicSettings" >
                 <div id="musicSettingsContent">
-                    <h2 style= "text-align: center;">Music Settings <br><br> </h2>
+                    <h1 style= "text-align: center; margin-bottom: 5%;"><p id="msettings*"></p> </h1>
                     <div id="settings">
                         <div style="margin-bottom: 10px;">
-                          <label for="musicStatusSelect">Music:</label>
+                          <label for="musicStatusSelect" id="music"></label>
                           <select style="margin-left: 50px;" id="musicStatusSelect" value="off" onchange="handleMusicStatusChange()">
-                            <option value="off">Off</option>
-                            <option value="on">On</option>
+                            <option value="off" id="op1"></option>
+                            <option value="on" id="op2"></option>
                           </select>
                         </div>
-                        <label for="volumeSlider">Volume:</label>
+                        <label for="volumeSlider" id="vol"></label>
                         <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0">
                       </div>
                       
-                    <div id="button4" onclick="showMusicSettings()"><p>Main Menu</p></div>
+                    <div id="button4" onclick="showMusicSettings()"><p id="mn*"></p></div>
                 </div>
             </div>
+            <div id="english-flag" style="text-align: center;" onclick="toggleLanguage('English')"><label style="color: white;">English</label>
+                <img src="assets/menu/english-flag.png">
+              </div>
+              <div id="turkish-flag" style="text-align: center;" onclick="toggleLanguage('Türkçe')"><label style="color: white;">Türkçe</label>
+                <img src="assets/menu/turkish-flag.png">
+              </div>
+
         </div>
 
         <audio id="backgroundMusic" src="music/music.wav" loop></audio>
@@ -52,11 +56,11 @@
         <img id="musicOffIcon" src="assets/menu/music-off.png" alt="Music Off Icon">
         <div id="death">
             <div id="deathContent">
-              <h1 style="margin-bottom: 4%;">Game Over</h1>
-              <p style="margin-bottom: 2%; margin-left: 3%;">Elapsed Time: <span id="elapsedTime"></span></p>
-              <p style="margin-bottom: 2%; margin-left: 3%">Collected Diamonds: <span id="collectedDiamonds"></span></p>
-              <p style="margin-bottom: 2%; margin-left: 3%">Your Best Score: <span id="bestScore"></span></p>
-              <div id="button5" onclick="startGame(0)"><p>Main Menu</p></div>
+              <h1 style="margin-bottom: 4%;" ><p id="d1"></p></h1>
+              <p style="margin-bottom: 2%; margin-left: 3%;" id="d2"></p>
+              <p style="margin-bottom: 2%; margin-left: 3%" id="d3"></p>
+              <p style="margin-bottom: 2%; margin-left: 3%" id="d4"></p>
+              <div id="button5" onclick="startGame(0)" ><p id="mn**"></p></div>
             </div>
           </div>
         <canvas id="canvas" style="display: none;"></canvas>
