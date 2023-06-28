@@ -945,6 +945,7 @@ function animate(timestamp) {
       }
     }else {
       bestScore.textContent = score;
+      setCookie("bestScore", score, 365);
     }
     showDeathScreen();
     return;
