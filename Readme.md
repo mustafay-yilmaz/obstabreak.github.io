@@ -1,5 +1,5 @@
 # OSTABREK GAME!
-![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu.png?raw=true)
+![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu1.png?raw=true)
 Merhaba! Burada javascript ile yaptığım platform tabanlı bir oyunu tanıtacağım. Oyunumun ismi Obstabrek! Oyunda kahramanımızın karşısına çıkan engellere karşı koyuyoruz ve elmasları toplamasına yardımcı oluyoruz.
 
 # Oyuna Nasıl Ulaşabilirim?
@@ -37,13 +37,14 @@ Oyun hakkında daha fazla bilgiye ve nasıl oynanıldığını daha rahat anlama
 
  1. ****MENU****
 
-![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu.png?raw=true)
-
+![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu1.png?raw=true)
+![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/menu2.png?raw=true)
  2. **HOW TO PLAY**
- ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/howtoplay.png?raw=true)
-
+ ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/howtoplay1.png?raw=true)
+![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/howtoplay2.png?raw=true)
  3. **GAME OVER**
- ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/GameOver.png?raw=true)
+ ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/gameover1.png?raw=true)
+ ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/gameover2.png?raw=true)
 
  4. **GAME PLAY**
  ![enter image description here](https://github.com/wassapman/obstabreak.github.io/blob/main/gameplay/playing.png?raw=true)
@@ -56,8 +57,3 @@ Oyun hakkında daha fazla bilgiye ve nasıl oynanıldığını daha rahat anlama
 Mustafa Yüksel Yılmaz 
 Bursa Teknik Üniversitesi - Bilgisayar Mühendisliği Öğrencisi
 
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzIyODAzNzM1LC02NTc3MjA5MzAsNzg1OD
-E5MzgzXX0=
--->
