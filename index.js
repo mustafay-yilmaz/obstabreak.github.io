@@ -10,6 +10,28 @@ let score = 0;
 let lastTime = 0;
 let bulletFinishTime = -1;
 
+var savedMusicLevel = getCookie("musicLevel");
+// Sayfa yüklendiğinde çalışacak olan kod
+window.onload = function() {
+  // Eğer musicLevel null değilse
+  if (savedMusicLevel !== null) {
+    // volumeSlider'ın value değerini musicLevel olarak ayarla
+    document.getElementById('volumeSlider').value = musicLevel;
+    if(savedMusicLevel==0){
+    pauseMusic();
+    musicOnIcon.style.display = "inline-block";
+    musicOffIcon.style.display = "none";
+    musicStatusSelect.value="off";
+    }
+    else {
+    startMusic();
+    musicOnIcon.style.display = "none";
+      musicOffIcon.style.display = "inline-block";
+      musicStatusSelect.value="on";
+    }
+  }
+};
+
 function updateScore() {
   // Skorun güncellendiği fonksiyon
   img = new Image();
@@ -740,16 +762,7 @@ function getCookie(name) {
   return null;
 }
 
-var savedMusicLevel = getCookie("musicLevel");
 
-// Müzik seviyesini kontrol edin ve istediğiniz şekilde kullanın
-if (savedMusicLevel !== null) {
-  // Müzik seviyesi cookie'den alındı, istediğiniz şekilde kullanabilirsiniz
-  console.log("Müzik seviyesi: " + savedMusicLevel);
-} else {
-  // Cookie'de müzik seviyesi bulunamadı, varsayılan değeri kullanabilirsiniz
-  console.log("Cookie'de müzik seviyesi bulunamadı. Varsayılan değeri kullanılıyor.");
-}
 
 let volume = document.getElementById("volumeSlider");
 let audio = document.getElementById("backgroundMusic");
