@@ -161,7 +161,7 @@ window.addEventListener("keydown", function (e) {
   } else if ((e.keyCode === 40 || e.keyCode === 32) && player.gravity < 0) {
     player.jump();
   }
-  }
+}
 });
 window.addEventListener("keyup", function (e) {
   keys[e.keyCode] = false;
