@@ -872,7 +872,6 @@ function startGame(number) {
 
 function animate(timestamp) {
   ctx.clearRect(0, 0, c.width, c.height);
-  console.log(getCookie("musicLevel"));
   frameCount++;
   now = Date.now();
   elapsed = now - then;
