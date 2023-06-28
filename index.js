@@ -154,11 +154,13 @@ c.addEventListener("mousemove", function (e) {
 });
 
 window.addEventListener("keydown", function (e) {
+  if (!keys[e.keyCode]) {
   keys[e.keyCode] = true;
   if ((e.keyCode === 38 || e.keyCode === 32) && player.gravity > 0) {
     player.jump();
   } else if ((e.keyCode === 40 || e.keyCode === 32) && player.gravity < 0) {
     player.jump();
+  }
   }
 });
 window.addEventListener("keyup", function (e) {
