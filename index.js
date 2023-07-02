@@ -1031,7 +1031,6 @@ function animate(timestamp) {
     if(getCookie("bestScore")!=null){
       if(score>getCookie("bestScore")){
         setCookie("bestScore", score, 365);
-        bestScore.textContent = score;
         document.getElementById("d4").textContent=d4+"  "+score;
       }else {
         document.getElementById("d4").textContent=d4+"  "+getCookie("bestScore");
